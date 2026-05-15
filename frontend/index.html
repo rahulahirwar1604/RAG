@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>DualRAG · Agentic Intelligence</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="/src/style.css">
+</head>
+<body>
+  <div id="app">
+    <div class="app-layout">
+      <!-- SIDEBAR -->
+      <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+          <div class="sidebar-title">
+            <i class="fas fa-comments"></i>
+            <span>Chat History</span>
+          </div>
+          <button class="collapse-btn" id="collapseBtn" title="Toggle Sidebar">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+        </div>
+        <div class="history-list" id="historyList">
+          <div class="empty-history" id="emptyHistory">
+            <i class="fas fa-inbox"></i>
+            <p>No conversations yet</p>
+            <p style="font-size:0.8rem;">Start a new chat to see it here</p>
+          </div>
+        </div>
+        <div class="sidebar-footer">
+          <button class="new-chat-btn" id="newChatBtn">
+            <i class="fas fa-plus-circle"></i>
+            <span>New Conversation</span>
+          </button>
+          <button class="clear-all-btn" id="clearAllBtn" title="Clear all data">
+            <i class="fas fa-trash-alt"></i>
+            <span>Clear All Chats</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- MAIN CHAT -->
+      <div class="chat-container" id="chatContainer">
+        <div class="chat-header">
+          <div class="header-left">
+            <div class="logo">
+              <i class="fas fa-brain"></i>DualRAG
+            </div>
+            <button class="settings-btn" id="settingsBtn" title="API Settings">
+              <i class="fas fa-cog"></i>
+            </button>
+          </div>
+          <div class="header-actions">
+            <div class="connection-status" id="connectionStatus">
+              <span class="status-dot-connected" id="statusDot"></span>
+              <span id="statusText">Connected</span>
+            </div>
+            <button class="doc-count-btn" id="docCountBtn">
+              <i class="fas fa-file-alt"></i>
+              <span id="docCountText">Documents</span>
+              <i class="fas fa-chevron-down" style="font-size:0.7rem;"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="chat-messages-container">
+          <div class="chat-messages" id="chatMessages">
+          </div>
+        </div>
+
+        <div class="chat-footer">
+          <div class="input-wrapper">
+            <input type="text" id="userInput" placeholder="Ask me anything..." autofocus>
+            <input type="file" id="fileUpload" accept=".txt,.pdf,.docx,.md,.csv,.json,.png,.jpg" hidden multiple>
+            <button class="upload-btn" id="uploadTrigger" title="Upload documents">
+              <i class="fas fa-paperclip"></i>
+              <div class="upload-progress" id="uploadProgress">
+                <div class="upload-progress-bar" id="uploadProgressBar"></div>
+              </div>
+            </button>
+            <button class="send-btn" id="sendBtn" title="Send message">
+              <i class="fas fa-arrow-up"></i>
+            </button>
+            <button class="stop-btn hidden" id="stopBtn" title="Stop generation">
+              <i class="fas fa-stop"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Document Dropdown -->
+    <div class="doc-dropdown" id="docDropdown">
+      <div class="doc-dropdown-header">
+        <span>Indexed Documents</span>
+        <div class="doc-dropdown-header-actions">
+          <button class="refresh-docs-btn" id="refreshDocsBtn" title="Refresh documents">
+            <i class="fas fa-sync-alt"></i> Refresh
+          </button>
+          <button class="remove-all-docs-btn" id="removeAllDocsBtn" title="Remove all documents">
+            <i class="fas fa-trash-alt"></i> Remove All
+          </button>
+        </div>
+      </div>
+      <div class="doc-dropdown-list" id="docDropdownList">
+        <div class="no-docs-message">Loading documents...</div>
+      </div>
+    </div>
+
+    <!-- Settings Modal -->
+    <div class="settings-backdrop" id="settingsBackdrop">
+      <div class="settings-modal">
+        <h3><i class="fas fa-cog"></i> API Configuration</h3>
+        <div class="form-group">
+          <label>Backend API URL</label>
+          <input type="text" id="apiUrlInput" placeholder="http://localhost:8000/api">
+        </div>
+        <div class="form-group">
+          <label>API Key (optional)</label>
+          <input type="password" id="apiKeyInput" placeholder="sk-...">
+        </div>
+        <div class="form-group">
+          <label>Model (optional)</label>
+          <input type="text" id="modelInput" placeholder="gpt-4">
+        </div>
+        <div class="settings-actions">
+          <button class="close-settings-btn" id="closeSettingsBtn">Cancel</button>
+          <button class="save-settings-btn" id="saveSettingsBtn">Save & Test Connection</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Alert Modal -->
+    <div class="alert-backdrop" id="alertBackdrop">
+      <div class="alert-modal" id="alertModal">
+        <div class="alert-icon" id="alertIcon"></div>
+        <div class="alert-title" id="alertTitle"></div>
+        <div class="alert-message" id="alertMessage"></div>
+        <div class="alert-actions" id="alertActions"></div>
+      </div>
+    </div>
+  </div>
+  
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

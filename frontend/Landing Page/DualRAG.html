@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DualRAG · Agentic Intelligence</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="particles-js"></div>
+
+    <div id="customModal" class="custom-modal">
+        <div class="modal-content">
+            <div class="modal-message" id="modalMessage">Your agent is being provisioned ...</div>
+            <button class="modal-btn" id="modalCloseBtn">Got it</button>
+        </div>
+    </div>
+
+    <div class="container">
+        <nav class="navbar">
+            <div class="logo"><i class="fas fa-brain" style="margin-right: 8px;"></i>DualRAG</div>
+            <div class="nav-links">
+                <span>Product</span>
+                <span>Solutions</span>
+                <span>Docs</span>
+                <span>Pricing</span>
+            </div>
+        </nav>
+
+        <section class="hero">
+            <div class="hero-content">
+                <div class="badge">
+                    <i class="fas fa-bolt" style="margin-right: 6px;"></i>Agentic RAG · v2.4
+                </div>
+                <h1 class="hero-title">
+                    <span class="gradient-text">Reason.</span><br>
+                    Retrieve. <span class="gradient-text">Act.</span>
+                </h1>
+                <p class="hero-desc">
+                    Autonomous retrieval-augmented agents that plan, search, and synthesize - built for the era of compound AI.
+                </p>
+                <div class="hero-actions">
+                    <button class="btn-primary" id="cta-main"><i class="fas fa-arrow-right" style="margin-left: 6px;"></i> Start building</button>
+                </div>
+                <div style="margin-top: 2.2rem; display: flex; gap: 2rem; font-size: 0.95rem; color: #b0c8e5;">
+                    <span><i class="fas fa-check-circle" style="color: #3b82f6;"></i> No credit card</span>
+                    <span><i class="fas fa-check-circle" style="color: #3b82f6;"></i> 10k tokens free</span>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="agent-preview">
+                    <div class="rag-badge">
+                        <span class="pulse-dot"></span> Agent active · reasoning loop
+                    </div>
+                    <div style="background: rgba(13, 22, 34, 0.7); border-radius: 18px; padding: 1rem; border: 1px solid #1f3247;">
+                        <div style="display: flex; gap: 10px; color: #9bb7dd;"><i class="fas fa-search"></i> RAG query: "latest ARR trends 2026"</div>
+                        <div style="font-family: monospace; margin-top: 12px; background: #03070e; padding: 10px; border-radius: 12px; color: #bdd3ff;">
+                            <span style="color: #6ea5ff;">⟳ planning → retrieval → synthesis</span><br>
+                            <span style="color: #a0c0f0;">✓ 14 sources · 2.1s</span>
+                        </div>
+                    </div>
+                    <div style="display: flex; gap: 6px; justify-content: flex-end;">
+                        <span style="padding: 4px 10px; background: #1b293b; border-radius: 20px; font-size: 0.8rem;"><i class="far fa-clock"></i> 99.2% accuracy</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="stats">
+            <div class="stat-item">
+                <div class="stat-number">4.8x</div>
+                <div class="stat-label">Faster insights</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">99.2%</div>
+                <div class="stat-label">Accuracy rate</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">10k+</div>
+                <div class="stat-label">Active agents</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">150+</div>
+                <div class="stat-label">Integrations</div>
+            </div>
+        </div>
+
+        <section>
+            <div class="section-title">Agentic by design</div>
+            <div class="section-sub">More than RAG - autonomous reasoning, tool use, and multi-step retrieval.</div>
+            
+            <div class="feature-banner" id="architecture-banner">
+                <div class="feature-banner-icon"><i class="fas fa-microchip"></i></div>
+                <div class="feature-banner-content">
+                    <h4>Powered by advanced agentic architecture</h4>
+                    <p>ReAct framework · Chain-of-thought reasoning · Self-consistency decoding · Dynamic tool selection · Memory-augmented retrieval · Adaptive reflection loop</p>
+                </div>
+                <div class="feature-banner-stats">
+                    <div class="feature-stat"><div class="feature-stat-number">&lt;2s</div><div class="feature-stat-label">Avg latency</div></div>
+                    <div class="feature-stat"><div class="feature-stat-number">94%</div><div class="feature-stat-label">Task success</div></div>
+                    <div class="feature-stat"><div class="feature-stat-number">∞</div><div class="feature-stat-label">Scalability</div></div>
+                </div>
+            </div>
+
+            <div class="features-container">
+                <div class="feature-banner">
+                    <div class="feature-banner-icon"><i class="fas fa-robot"></i></div>
+                    <div class="feature-banner-content">
+                        <h4>Autonomous Agents</h4>
+                        <p>Multi‑step planning, self‑reflection, and dynamic tool selection. Your knowledge base, now proactive.</p>
+                    </div>
+                    <div class="feature-banner-stats">
+                        <div class="feature-stat"><div class="feature-stat-number">100%</div><div class="feature-stat-label">Autonomous</div></div>
+                        <div class="feature-stat"><div class="feature-stat-number">5+</div><div class="feature-stat-label">Tool types</div></div>
+                        <div class="feature-stat"><div class="feature-stat-number">24/7</div><div class="feature-stat-label">Operation</div></div>
+                    </div>
+                </div>
+                <div class="feature-banner">
+                    <div class="feature-banner-icon"><i class="fas fa-database"></i></div>
+                    <div class="feature-banner-content">
+                        <h4>Hybrid RAG core</h4>
+                        <p>Vector + graph + relational retrieval. Context‑aware, hallucination‑resistant answers with multi-modal support.</p>
+                    </div>
+                    <div class="feature-banner-stats">
+                        <div class="feature-stat"><div class="feature-stat-number">99.2%</div><div class="feature-stat-label">Accuracy</div></div>
+                        <div class="feature-stat"><div class="feature-stat-number">3</div><div class="feature-stat-label">Retrieval types</div></div>
+                        <div class="feature-stat"><div class="feature-stat-number">&lt;0.5%</div><div class="feature-stat-label">Hallucination</div></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="how-it-works">
+            <div class="section-title">How it works</div>
+            <div class="section-sub">From query to action in four autonomous steps.</div>
+            <div class="timeline">
+                <div class="timeline-step"><div class="step-number">1</div><h4>Understand</h4><p>Agent parses intent and breaks down complex queries into sub-tasks.</p></div>
+                <div class="timeline-step"><div class="step-number">2</div><h4>Plan</h4><p>Dynamic tool selection and retrieval strategy optimization.</p></div>
+                <div class="timeline-step"><div class="step-number">3</div><h4>Execute</h4><p>Parallel retrieval across vectors, graphs, and APIs.</p></div>
+                <div class="timeline-step"><div class="step-number">4</div><h4>Synthesize</h4><p>Cross-reference, verify, and generate actionable responses.</p></div>
+            </div>
+        </section>
+
+        <section class="use-cases">
+            <div class="section-title">Built for every workflow</div>
+            <div class="section-sub">Agentic RAG adapts to your domain.</div>
+            <div class="use-case-grid">
+                <div class="use-case-card"><div class="use-case-icon"><i class="fas fa-flask"></i></div><h3>Research & Development</h3><p>Literature review automation, hypothesis generation, and patent analysis.</p></div>
+                <div class="use-case-card"><div class="use-case-icon"><i class="fas fa-headset"></i></div><h3>Customer Support</h3><p>Autonomous ticket resolution with knowledge base and CRM integration.</p></div>
+                <div class="use-case-card"><div class="use-case-icon"><i class="fas fa-file-contract"></i></div><h3>Legal & Compliance</h3><p>Contract review, regulatory research, and policy comparison.</p></div>
+                <div class="use-case-card"><div class="use-case-icon"><i class="fas fa-chart-line"></i></div><h3>Financial Analysis</h3><p>Market research, earnings call synthesis, and risk assessment.</p></div>
+                <div class="use-case-card"><div class="use-case-icon"><i class="fas fa-code"></i></div><h3>Software Development</h3><p>Code documentation search, bug triage, and architectural decision records.</p></div>
+                <div class="use-case-card"><div class="use-case-icon"><i class="fas fa-newspaper"></i></div><h3>Media & Publishing</h3><p>Fact-checking automation, content summarization, and trend detection.</p></div>
+            </div>
+        </section>
+
+        <section class="pricing">
+            <div class="section-title">Simple, transparent pricing</div>
+            <div class="section-sub">Start free, scale as you grow.</div>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>Starter</h3>
+                    <div class="price">$0 <span class="price-period">/month</span></div>
+                    <p style="color: var(--text-secondary); margin-bottom: 1rem;">For individuals and small projects</p>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> 10k tokens/month</li>
+                        <li><i class="fas fa-check"></i> 5 agents</li>
+                        <li><i class="fas fa-check"></i> Community support</li>
+                        <li><i class="fas fa-check"></i> Basic analytics</li>
+                        <li><i class="fas fa-check"></i> Limited Integration</li>
+                    </ul>
+                    <button class="btn-outline starterBtn" style="width: 100%;">Get Started</button>
+                </div>
+                <div class="pricing-card popular">
+                    <div class="popular-badge">Most Popular</div>
+                    <h3>Pro</h3>
+                    <div class="price">$49 <span class="price-period">/month</span></div>
+                    <p style="color: var(--text-secondary); margin-bottom: 1rem;">For growing teams and businesses</p>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> 500k tokens/month</li>
+                        <li><i class="fas fa-check"></i> Unlimited agents</li>
+                        <li><i class="fas fa-check"></i> Priority support</li>
+                        <li><i class="fas fa-check"></i> Advanced analytics</li>
+                        <li><i class="fas fa-check"></i> Custom integrations</li>
+                    </ul>
+                    <button class="btn-primary proBtn" style="width: 100%;">Start Now</button>
+                </div>
+                <div class="pricing-card">
+                    <h3>Enterprise</h3>
+                    <div class="price">Custom</div>
+                    <p style="color: var(--text-secondary); margin-bottom: 1rem;">For large organizations</p>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Unlimited tokens</li>
+                        <li><i class="fas fa-check"></i> Dedicated support</li>
+                        <li><i class="fas fa-check"></i> On-prem deployment</li>
+                        <li><i class="fas fa-check"></i> SLA guarantee</li>
+                        <li><i class="fas fa-check"></i> Custom models</li>
+                    </ul>
+                    <button class="btn-outline enterpriseBtn" style="width: 100%;">Contact Sales</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="testimonials">
+            <div class="section-title">Trusted by builders</div>
+            <div class="section-sub">From research labs to unicorn startups.</div>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                    <div class="testimonial-text">"DualRAG transformed our internal knowledge base into an autonomous analyst. It's like having a junior researcher 24/7."</div>
+                    <div class="author"><div class="avatar">JD</div><div class="author-info"><h4>Jasmine Doe</h4><p>Head of AI @ Vertex Labs</p></div></div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                    <div class="testimonial-text">"The agentic layer is a game-changer. It decides which sources to query and when to stop. Accuracy improved by 34%."</div>
+                    <div class="author"><div class="avatar">MC</div><div class="author-info"><h4>Michael Chen</h4><p>CTO, Aether AI</p></div></div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+                    <div class="testimonial-text">"We replaced three internal tools with one agentic RAG pipeline. Latency dropped, and our team loves the explainability."</div>
+                    <div class="author"><div class="avatar">SR</div><div class="author-info"><h4>Samira R.</h4><p>Lead Engineer, Horizon</p></div></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="faq">
+            <div class="section-title">Frequently asked questions</div>
+            <div class="section-sub">Everything you need to know about agentic RAG.</div>
+            <div class="faq-grid">
+                <div class="faq-item"><h4><i class="fas fa-circle-question"></i> What makes it "agentic"?</h4><p>Unlike traditional RAG, our agents can plan multi-step workflows, use tools autonomously, and self-correct based on results.</p></div>
+                <div class="faq-item"><h4><i class="fas fa-circle-question"></i> Can I use my own vector database?</h4><p>Yes! BYODB support for Pinecone, Weaviate, Qdrant, and more. We also offer managed vector storage.</p></div>
+                <div class="faq-item"><h4><i class="fas fa-circle-question"></i> How does pricing work?</h4><p>Based on token usage and number of agent executions. Generous free tier included.</p></div>
+                <div class="faq-item"><h4><i class="fas fa-circle-question"></i> Is my data used for training?</h4><p>Never. All data stays within your tenant. Enterprise plans offer complete data isolation.</p></div>
+                <div class="faq-item"><h4><i class="fas fa-circle-question"></i> What's the latency like?</h4><p>Average response time is 1.8 seconds for complex queries. Streaming responses available for real-time feedback.</p></div>
+                <div class="faq-item"><h4><i class="fas fa-circle-question"></i> Can agents call external APIs?</h4><p>Yes! Agents can be configured with tool access to REST APIs, GraphQL endpoints, and custom functions.</p></div>
+            </div>
+        </section>
+
+        <div class="cta-section">
+            <div class="cta-title">Ready for <span class="gradient-text">agentic RAG</span>?</div>
+            <p style="font-size: 1.2rem; margin-bottom: 2rem; color: #c7d9f0;">Deploy your first reasoning agent in under 5 minutes.</p>
+            <button class="btn-primary" id="cta-footer" style="padding: 1rem 3rem; font-size: 1.2rem;"><i class="fas fa-rocket" style="margin-right: 10px;"></i>Get started free</button>
+            <p style="margin-top: 1.5rem; opacity: 0.7; font-size: 0.9rem;">Join 4,500+ developers building with DualRAG</p>
+        </div>
+
+        <footer class="footer">
+            <div>© 2026 DualRAG · agentic intelligence</div>
+            <div style="display: flex; gap: 2rem;">
+                <span>Privacy</span><span>Terms</span><span>Status</span><span><i class="fab fa-github"></i></span>
+            </div>
+        </footer>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

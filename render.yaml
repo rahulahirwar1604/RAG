@@ -1,0 +1,66 @@
+# render.yaml — Render.com deployment spec for DualRAG backend
+# Commit this file to your repo root. Render auto-detects it.
+# Free plan: 512 MB RAM, spins down after 15 min inactivity.
+
+services:
+  - type: web
+    name: dualrag-backend
+    env: python
+    region: oregon          # or frankfurt — pick closest to your users
+    plan: free
+
+    # Root of your backend code
+    rootDir: backend
+
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app:app --host 0.0.0.0 --port $PORT
+
+    # Health check — Render uses this to verify the service is alive
+    healthCheckPath: /api/health
+
+    # Environment variables — set values in Render Dashboard, not here
+    # (never commit real keys)
+    envVars:
+      - key: OPENROUTER_API_KEY
+        sync: false          # "sync: false" = fill in Render Dashboard
+
+      - key: OPENROUTER_BASE_URL
+        value: https://openrouter.ai/api/v1
+
+      - key: LLM_MODEL
+        value: anthropic/claude-sonnet-4-20250514
+
+      - key: EMBEDDING_MODEL
+        value: nvidia/llama-nemotron-embed-vl-1b-v2:free
+
+      - key: EMBEDDING_DIMENSIONS
+        value: "2048"
+
+      - key: NVIDIA_API_KEY
+        sync: false
+
+      - key: QDRANT_URL
+        sync: false          # Your Qdrant Cloud cluster URL
+
+      - key: QDRANT_API_KEY
+        sync: false
+
+      - key: QDRANT_COLLECTION
+        value: dualrag_documents
+
+      - key: CLOUDINARY_CLOUD_NAME
+        sync: false
+
+      - key: CLOUDINARY_API_KEY
+        sync: false
+
+      - key: CLOUDINARY_API_SECRET
+        sync: false
+
+      # Set this AFTER Vercel deploys your frontend
+      # e.g. https://dualrag.vercel.app,http://localhost:5173
+      - key: CORS_ORIGINS
+        sync: false
+
+      - key: DEBUG
+        value: "False"
